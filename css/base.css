@@ -1,0 +1,138 @@
+:root{
+    --funte: 'Krub', sans-serif;
+    --naranja_oscuro: #f26a21;
+    --naranja_claro: #f7911c;
+    --negro: #212121;
+    --blanco: #fff;
+    --opaco: rgba(0, 0, 0, 0.4);
+}
+
+body{
+    font-family: var(--funte);
+}
+
+a{
+    text-decoration: none;
+}
+
+.dark-bar-conteiner{
+    background-color: var(--negro);
+}
+
+.dark-bar-conteiner a{
+    color: var(--blanco);
+    font-weight: 700;
+}
+
+.dark-bar-conteiner a:hover{
+    background-color: var(--naranja_oscuro);
+}
+
+.orange-bar-conteiner{
+    background-color: var(--naranja_claro);
+}
+
+.orange-bar-conteiner a{
+    color: var(--blanco);
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.orange-bar-conteiner .option{
+    border-radius: 5px;
+}
+
+.orange-bar-conteiner .option:hover{
+    background-color: var(--opaco);
+}
+
+.logo{
+    height: 60px;
+}
+
+.cart{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-icon{
+    margin-right: 20px;
+}
+
+.search{
+    margin-right: 20px;
+}
+
+.search input{
+    outline: none;
+    border: none;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    padding: 10px;
+}
+
+.buscar{
+    border: none;
+    background-color: var(--blanco);
+    color: #000;
+    font-weight: 500;
+}
+
+.buscar:hover{
+    background-color: var(--naranja_oscuro);
+    color: var(--blanco);
+}
+
+.cantidad{
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--naranja_oscuro);
+    color: var(--blanco);
+    text-align: center;
+    border-radius: 100%;
+    font-size: 16px;
+    font-weight: 700;
+    width: 24px;
+    height: 24px;
+}
+
+.banner{
+    background-image: url(../img/footer.jpg);
+    height: 400px;
+    background-size: cover;
+}
+
+.banner-conteiner{
+    background-color: var(--opaco);
+}
+
+.banner-conteiner a{
+    color: var(--blanco);
+    font-size: 32px;
+}
+
+.banner-elements .pin{
+    color: var(--naranja_oscuro);
+}
+
+.banner-elements a:hover{
+    text-decoration: underline;
+}
+
+.banner-conteiner .btn-contact{
+    background-color: var(--naranja_claro);
+    color: #000;
+    border-radius: 50px;
+    font-weight: bold;
+}
+
+.banner-conteiner .btn-contact:hover{
+    background-color: var(--naranja_oscuro);
+    color: var(--blanco);
+}

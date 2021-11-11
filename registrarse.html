@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="img/icono.ico">
+        <!-- Estilos CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/registro.css">
+        <!-- Fuentes -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Krub:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <title>Ferrekasa</title>
+    </head>
+    <body>
+        <header>
+            <div class="dark-bar-conteiner d-flex justify-content-between px-4">
+                <nav class="dark-bar-left d-flex justify-content-between">
+                    <a href="nosotros.html" class="p-2 text-center">Nosotros</a>
+                    <a href="blog.html" class="p-2 text-center">Blog</a>
+                    <a href="contacto.html" class="p-2 text-center">Contacto</a>
+                </nav>
+                <nav class="dark-bar-right d-flex justify-content-between">
+                    <a href="iniciar_sesion.html" class="p-2 text-center">Iniciar sesión</a>
+                    <a href="registrarse.html" class="p-2 text-center">Registrarse</a>
+                </nav>
+            </div>
+            <div class="orange-bar-conteiner d-flex align-items-center px-4 py-1">
+                <nav>
+                    <a href="index.html" class="home">
+                        <img src="img/logo.png" alt="" class="logo">
+                    </a>
+                </nav>
+                <div class="categorias-cart d-flex justify-content-between w-100">
+                    <nav class="categorias d-flex align-content-center">
+                        <a href="busqueda.html" class="py-2 px-4 option" id="herramientas">Herramientas</a>
+                        <a href="busqueda.html" class="py-2 px-4 option" id="plomeria">Plomeria</a>
+                        <a href="busqueda.html" class="py-2 px-4 option" id="consumibles">Consumibles</a>
+                    </nav>
+                    <div class="cart-search d-flex">
+                        <form action="" class="d-flex search">
+                            <input type="text" id="busqueda">
+                            <button type="button" class="buscar" id="buscar">Buscar</button>
+                        </form>
+                        <a href="carrito.html" class="cart">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-cart-fill cart-icon" viewBox="0 0 16 16">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                            </svg>
+                            <legend class="cantidad" id="cantidad">0</legend>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="container-fluid d-flex justify-content-center align-items-center">
+            <div class="container-formulario container m-5 p-4">
+                <h2 class="text-center mb-4">Registrarse</h2>
+                <form action="" class="formulario">
+                    <div class="campo d-flex flex-column gap-2">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" placeholder="example@mail.com">
+                        <i class="fas fa-times-circle icon"></i>
+                        <p class="error-msj">Ingrese un correo válido</p>
+                    </div>
+                    <div class="campo d-flex flex-column gap-2">
+                        <label for="email-confirm">Confirmar correo electrónico</label>
+                        <input type="email" id="email-confirm" placeholder="example@mail.com">
+                        <i class="fas fa-times-circle icon"></i>
+                        <p class="error-msj">Ingrese un correo válido</p>
+                    </div>
+                    <div class="campo d-flex flex-column gap-2">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" placeholder="example@mail.com">
+                        <i class="fas fa-times-circle icon"></i>
+                        <p class="error-msj">Ingrese un correo válido</p>
+                    </div>
+                    <div class="campo d-flex flex-column gap-2">
+                        <label for="password-confirm">Confirmar contraseña</label>
+                        <input type="password" id="password-confirm" placeholder="example@mail.com">
+                        <i class="fas fa-times-circle icon"></i>
+                        <p class="error-msj">Ingrese un correo válido</p>
+                    </div>
+                    <div class="campo d-flex flex-column gap-2">
+                        <label for="nombre">Nombre(s)</label>
+                        <input type="text" id="nombre" placeholder="John">
+                        <i class="fas fa-times-circle icon"></i>
+                        <p class="error-msj">Ingrese un correo válido</p>
+                    </div>
+                    <div class="campo d-flex flex-column gap-2">
+                        <label for="apellido">Apellido(s)</label>
+                        <input type="text" id="apellido" placeholder="example@mail.com">
+                        <i class="fas fa-times-circle icon"></i>
+                        <p class="error-msj">Ingrese un correo válido</p>
+                    </div>
+                    <div class="campo d-flex flex-column gap-2">
+                        <label for="calle">Calle</label>
+                        <input type="text" id="calle" placeholder="example@mail.com">
+                        <i class="fas fa-times-circle icon"></i>
+                        <p class="error-msj">Ingrese un correo válido</p>
+                    </div>
+                    <div class="campo d-flex flex-column gap-2">
+                        <label for="numero">Número</label>
+                        <input type="text" id="numero" placeholder="#343">
+                        <i class="fas fa-times-circle icon"></i>
+                        <p class="error-msj">Ingrese un correo válido</p>
+                    </div>
+                    <div class="campo d-flex flex-column gap-2">
+                        <label for="colonia">Colonia</label>
+                        <input type="text" id="colonia" placeholder="Centro">
+                        <i class="fas fa-times-circle icon"></i>
+                        <p class="error-msj">Ingrese un correo válido</p>
+                    </div>
+                    <div class="campo d-flex flex-column gap-2">
+                        <label for="codigo-postal">Código postal</label>
+                        <input type="email" id="codigo-postal" placeholder="16807">
+                        <i class="fas fa-times-circle icon"></i>
+                        <p class="error-msj">Ingrese un correo válido</p>
+                    </div>
+                    <div class="campo d-flex flex-column gap-2">
+                        <label for="ciudad">Ciudad</label>
+                        <input type="text" id="ciudad" placeholder="Sahuayo">
+                        <i class="fas fa-times-circle icon"></i>
+                        <p class="error-msj">Ingrese un correo válido</p>
+                    </div>
+                    <div class="campo d-flex flex-column">
+                        <label for="estado">Estado</label>
+                        <input type="text" id="estado" placeholder="Michoacán">
+                        <i class="fas fa-times-circle icon"></i>
+                        <p class="error-msj">Ingrese un correo válido</p>
+                    </div>
+                    <div class="boton">
+                        <button type="submit" id="registrarse">Registrarse</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            <div class="banner">
+                <div class="banner-conteiner w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                    <div class="banner-elements m-2 d-flex align-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-geo-alt-fill pin" viewBox="0 0 16 16">
+                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                        </svg>
+                        <a href="https://www.google.com.mx/maps/place/Ferrekasa+Cotija/@19.8104086,-102.7050765,15z/data=!4m2!3m1!1s0x0:0x99ebcdee875fca5?sa=X&ved=2ahUKEwit49zxnYf0AhVXmmoFHZ1kCb8Q_BJ6BAhDEAM" target="_blank">Melchor Ocampo #34, Cotija, Michoacán.</a>
+                    </div>
+                    <a href="contacto.html" class="m-2 py-1 px-5 btn-contact">Contáctanos</a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
