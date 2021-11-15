@@ -1,6 +1,7 @@
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario .formulario-input');
 
+
 const expresiones = {
 	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
@@ -49,6 +50,10 @@ const validarFormulario = (e) =>{
             validarCampo(expresiones.telefono, e.target, e.target.name);
             break;
         case 'password':
+            if(e.getModifierState('CapsLock'))
+                document.querySelector('.mayus').classList.add('mayus-error');
+            else
+                document.querySelector('.mayus').classList.remove('mayus-error');
             validarCampo(expresiones.password, e.target, e.target.name);
             validarContraseña();
             break;

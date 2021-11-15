@@ -59,7 +59,7 @@ body{
     box-shadow: 0.3rem 0rem 3rem rgba(163, 163, 163, 0.4);
 }
 
-.input-error{
+.input-error, .mayus{
     font-size: 1.6rem;
     margin: 1rem 0 0 2rem;
     display: none;
@@ -67,6 +67,12 @@ body{
 
 .input-error-activo{
     display: block;
+}
+
+.mayus-error{
+    display: block;
+    font-weight: 700;
+    color: #bb2929;
 }
 
 .validacion-estado{
