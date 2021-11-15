@@ -5,6 +5,7 @@
     --negro: #212121;
     --blanco: #fff;
     --opaco: rgba(0, 0, 0, 0.4);
+    --fondo: #e3e4e4;
 }
 
 *, *::before, *::after{

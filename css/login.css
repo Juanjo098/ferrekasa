@@ -6,8 +6,8 @@ body{
     gap: 2rem;
 }
 
-.formulario-conteiner{
-    width: 1100px;
+.login-conteiner{
+    width: 600px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -19,31 +19,31 @@ body{
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.6);
 }
 
-.formulario-conteiner h2{
+.login-conteiner h2{
     text-align: center;
     margin: 2rem 0 2rem 0;
 }
 
-.formulario{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+.login{
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
     width: 100%;
     margin-bottom: 2rem;
 }
 
-.formulario-campo label{
+.login-campo label{
     display: block;
     font-weight: 700;
     padding: 1rem;
     cursor: pointer;
 }
 
-.formulario-campo-input{
+.login-campo-input{
     position: relative;
 }
 
-.formulario-campo-input input{
+.login-campo-input input{
     width: 100%;
     background-color: #fff;
     /* border: 0.3rem solid transparent; */
@@ -53,13 +53,13 @@ body{
     transition: 0.3s ease all;
 }
 
-.formulario-campo-input input:focus{
+.login-campo-input input:focus{
     border: 0.3rem solid var(--naranja_oscuro);
     outline: none;
     box-shadow: 0.3rem 0rem 3rem rgba(163, 163, 163, 0.4);
 }
 
-.input-error{
+.input-error, .mayus{
     font-size: 1.6rem;
     margin: 1rem 0 0 2rem;
     display: none;
@@ -67,6 +67,12 @@ body{
 
 .input-error-activo{
     display: block;
+}
+
+.mayus-error{
+    display: block;
+    font-weight: 700;
+    color: #bb2929;
 }
 
 .validacion-estado{
@@ -78,13 +84,18 @@ body{
     opacity: 0;
 }
 
-.formulario-enviar{
+.login-enviar{
     grid-column: span 2;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+}
+
+.login-enviar a{
+    color: var(--naranja_oscuro);
+    font-weight: 700;
 }
 
 .btn-enviar{
@@ -96,7 +107,7 @@ body{
     color: var(--blanco);
     border-radius: 2rem;
     cursor: pointer;
-    width: 200px;
+    width: 250px;
 }
 
 .btn-enviar:hover{
@@ -121,40 +132,40 @@ body{
 }
 
 /* --- Estilos de validación --- */
-.formulario-campo-correcto i{
+.login-campo-correcto i{
     color: #1ed12d;
     opacity: 1;
 }
 
-.formulario-campo-incorrecto i{
+.login-campo-incorrecto i{
     color: #bb2929;
     opacity: 1;
 }
 
-.formulario-campo-incorrecto label{
+.login-campo-incorrecto label{
     color: #bb2929;
 }
 
-.formulario-campo-incorrecto input{
+.login-campo-incorrecto input{
     border: 3px solid #bb2929;
 }
 
 @media screen and (max-width: 1200px){
-    .formulario-conteiner{
+    .login-conteiner{
         width: 80%;
     }
 
-    .formulario{
+    .login{
         grid-template-columns: repeat(1, 1fr);
     }
 
-    .formulario-enviar{
+    .login-enviar{
         grid-column: span 1;
     }
 }
 
 @media screen and (max-width: 768px){
-    .formulario-conteiner{
+    .login-conteiner{
         width: 90%;
     }
 }

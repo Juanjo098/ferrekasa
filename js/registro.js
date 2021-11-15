@@ -26,8 +26,21 @@ const campos = {
     estado: false,
 }
 
+const resetear = () =>{
+    campos['email'] = false;
+    campos['telefono'] = false;
+    campos['password'] = false;
+    campos['nombre'] = false;
+    campos['apellido'] = false;
+    campos['calle'] = false;
+    campos['numero'] = false;
+    campos['colonia'] = false;
+    campos['cPostal'] = false;
+    campos['ciudad'] = false;
+    campos['estado'] = false;
+};
+
 const validarFormulario = (e) =>{
-    console.log(e.target.name);
     switch (e.target.name){
         case 'email':
             validarCampo(expresiones.correo, e.target, e.target.name);
@@ -94,7 +107,6 @@ const validarContraseña = () =>{
     const password2 = document.getElementById('confirm-password');
 
     if (password.value == password2.value){
-        
         document.getElementById(`campo-confirm-password`).classList.remove('formulario-campo-incorrecto');
         document.getElementById(`campo-confirm-password`).classList.add('formulario-campo-correcto');
         document.querySelector(`#campo-confirm-password i`).classList.remove('fa-times-circle');
@@ -121,6 +133,7 @@ formulario.addEventListener('submit', (e) =>{
     e.preventDefault();
 
     if(campos.email && campos.telefono && campos.password && campos.nombre && campos.apellido && campos.calle && campos.numero && campos.colonia && campos.cPostal && campos.ciudad && campos.estado){
+        resetear();
         formulario.reset();
 
         document.querySelectorAll('.formulario-campo-correcto').forEach((icon) =>{
@@ -128,6 +141,7 @@ formulario.addEventListener('submit', (e) =>{
         });
 
         document.querySelector('.enviar-correcto').classList.add('enviar-mostrar');
+        document.querySelector('.enviar-error').classList.remove('enviar-mostrar');
         setTimeout(() => {
             document.querySelector('.enviar-correcto').classList.remove('enviar-mostrar');
         }, 5000);
