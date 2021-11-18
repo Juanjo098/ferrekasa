@@ -77,7 +77,6 @@ body{
 
 /* Botón de comprar */
 .btn-comprar{
-    opacity: 0;
     font-weight: 700;
     color: var(--blanco);
     padding: 0.5rem 2rem;
@@ -86,10 +85,6 @@ body{
     border-radius: 0.5rem;
     cursor: pointer;
     transition: ease-in 0.3s;
-}
-
-.producto:hover .btn-comprar{
-    opacity: 1;
 }
 
 /* Contenedor de la publicidad */
