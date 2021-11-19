@@ -60,6 +60,10 @@ body{
     color: #f26a21;
 }
 
+.segunda-seccion{
+    height: 600px;
+}
+
 .segunda-seccion img:hover{
     border: solid;
     border-color: #f26a21;
