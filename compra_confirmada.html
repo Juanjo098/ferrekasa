@@ -7,6 +7,7 @@
         <link rel="icon" href="img/icono.ico">
         <!-- Estilos CSS -->
         <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+        <link rel="stylesheet" href="css/base.css">
         <link rel="stylesheet" href="css/compra_confirm.css">
         <!-- Fuentes -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,16 +37,16 @@
                         <a href="busqueda.html" id="consumibles">Consumibles</a>
                     </div>
                     <div class="busqueda-cart">
-                        <form action="" class="busqueda">
-                            <input type="text" id="busqueda">
-                            <button type="button">Buscar</button>
-                        </form>
                         <a href="carrito.html" class="cart">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-cart-fill" viewBox="0 0 16 16">
                                 <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                             </svg>
                             <legend class="cantidad" id="cantidad">99</legend>
                         </a>
+                        <form action="" class="busqueda">
+                            <input type="text" id="busqueda">
+                            <button type="button">Buscar</button>
+                        </form>
                     </div>
                 </div>
                 <div class="menu-conteiner">
@@ -56,25 +57,24 @@
             </nav>
         </header>
             
-        <H2 class="confirmacion">Checkout de la compra-Confirmacion</H2>
-        <br><br>
-
+        
         <main class="main">
-            <div class="contenedor">
-                <p>COMPRA CONFIRMADA
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="32" height="32" viewBox="0 0 24 24" stroke-width="2" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <circle cx="12" cy="12" r="9" />
-                        <path d="M9 12l2 2l4 -4" />
-                      </svg>
-                </p>
-                <br><br><br>
-                <p class="msj">REVISE SU CORREO PARA ENCONTRAR</p>
-                <P class="msj">LA INFORMACION DETALLADA</P>
+            <div class="mensaje-confirmacion">
+                <h2 class="confirmacion">Checkout de la compra-Confirmacion</h2>
+                <div class="contenedor">
+                    <p>COMPRA CONFIRMADA
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="32" height="32" viewBox="0 0 24 24" stroke-width="2" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M9 12l2 2l4 -4" />
+                        </svg>
+                    </p>
+                    <br><br><br>
+                    <p class="msj">REVISE SU CORREO PARA ENCONTRAR</p>
+                    <P class="msj">LA INFORMACION DETALLADA</P>
+                </div>
             </div>
         </main>
-
-        <br><br>
 
         <footer>
             <div class="banner">
