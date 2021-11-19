@@ -130,3 +130,55 @@ p{
         height: 200px;
     }
 }
+
+@media screen and (max-width: 576px){
+    .main{
+        display:block;
+    }
+
+    .primera-seccion{
+        padding: 5rem 2rem;
+    }
+    
+    .segunda-seccion img{
+        transform: rotate(270deg);
+    }
+
+    .segunda-seccion{
+        padding: 1rem 15rem;
+    }
+
+    .first-box{
+        height: 280px;
+    }
+
+    .second-box{
+        height: 280px;
+    }
+}
+
+@media screen and (max-width: 420px){
+    .main{
+        display:block;
+    }
+
+    .primera-seccion{
+        padding: 5rem 2rem;
+    }
+    
+    .segunda-seccion img{
+        transform: rotate(270deg);
+    }
+
+    .segunda-seccion{
+        padding: 1rem 10rem;
+    }
+
+    .first-box{
+        height: 280px;
+    }
+
+    .second-box{
+        height: 280px;
+    }
+}
