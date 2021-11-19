@@ -50,6 +50,10 @@ body{
     background-color: var(--naranja_claro);
 }
 
+.contenedor .contenedor-items .articulo .cantidad .boton-cantidad:hover {
+    background-color: var(--naranja_oscuro);
+}
+
 .contenedor .contenedor-items .articulo .salto{
     margin: auto;
 }
