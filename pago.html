@@ -9,9 +9,7 @@
         <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
         <link rel="stylesheet" href="css/base.css">
         <link rel="stylesheet" href="css/pago.css">
-        <!---Importamos la libreria de boostrap-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
         <!-- Fuentes -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,47 +57,27 @@
                 </div>
             </nav>
         </header>
-        <section>
-            <div class="container general text-center ">
-                <p><b>
-                    Checkout de la compra - Método de pago -
-                </b>
-                </p>
-                <div class="row ">
-                  <div class="col ">
-                   
-                    <a>
-                        <img  class="border" src="img/paypal.png"  alt="Imagen no disponible">
-                    </a>
-                    <p><b>
-                        Pago con PayPal
-                    </b>
-                    </p>
-                  </div>
-                  <div class="col ">
-                    <a >
-                        <img class="border" src="img/visa.png"   alt="Imagen no disponible">
-                    </a>
-                    <p><b>
-                        Pago con tarjeta de credito
-                    </b>
-                    </p>
-                  </div>
-                  <div class="col ">
-                    <a>
-                        <img class="border" src="img/oxxo.png"   alt="Imagen no disponible">
-                    </a>
-                    <p><b>
-                        Pago con deposito
-                    </b>
-                    </p>
-                  </div>
-                  
+
+        <main class="main">
+            <div class="contenedor">
+                <h2>- Checkout de la compra - Método de pago -</h2>
+                <div class="opciones">
+                    <div class="paypal" id="paypal">
+                        <a href="compra_confirmada.html"><img  class="imagen" src="img/paypal.png"  alt="Imagen no disponible"></a>
+                        <p class="leyenda">Pago con PayPal</p>
+                    </div>
+                    <div class="visa" id="visa">
+                        <a href="compra_confirmada.html"><img class="imagen" src="img/visa.png"   alt="Imagen no disponible"></a>
+                        <p class="leyenda">Pago con tarjeta de credito</p>
+                    </div>
+                    <div class="oxxo" id="oxxo">
+                        <a href="compra_confirmada.html"><img class="imagen" src="img/oxxo.png"   alt="Imagen no disponible"></a>
+                        <p class="leyenda">Pago con deposito</p>
+                    </div>
                 </div>
-              </div>
+            </div>
+        </main>
         
-        
-         </section>
         <footer>
             <div class="banner">
                 <div class="banner-conteiner ">
