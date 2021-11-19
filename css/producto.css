@@ -41,7 +41,7 @@ body{
 
 
 /* Imagen del producto */
-img{
+.imgp{
     width: 50rem;
     height: 40rem;
 }
