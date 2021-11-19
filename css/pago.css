@@ -51,4 +51,6 @@ body{
 .imagen{
     border: 1px solid #000;
     border-radius: 0.5rem;
+    width: 290px;
+    height: 163px;
 }
