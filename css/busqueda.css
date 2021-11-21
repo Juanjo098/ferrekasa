@@ -215,6 +215,14 @@ body{
     .contenedor{
         width: 100%;
     }
+
+    .barra{
+        width: 100%;
+    }
+
+    .filtro{
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 576px){

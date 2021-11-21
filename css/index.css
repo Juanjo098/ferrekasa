@@ -100,15 +100,15 @@ body{
     width: 100%;
 }
 
-@media screen and (max-width: 1200px){
+@media screen and (min-width: 993px) and (max-width: 1200px){
     .contenedor{
-        width: 800px;
+        width: 900px;
     }
 }
 
 @media screen and (max-width: 992px){
     .contenedor{
-        width: 70%;
+        width: 700px;
     }
 
     .productos-conteiner{
@@ -118,7 +118,7 @@ body{
 
 @media screen and (max-width: 768px){
     .contenedor{
-        width: 80%;
+        width: 500px;
     }
 }
 

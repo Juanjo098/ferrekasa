@@ -16,10 +16,15 @@ html{
 body{
     font-size: 1.6rem;
     font-weight: bold;
+    background-color: var(--fondo);
 }
 
 .contenedor{
+    margin: 4rem;
     display: flex;
+    background-color: var(--blanco);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.6);
+    border-radius: 1rem;
 }
 
 .contenedor .contenedor-items{
@@ -29,17 +34,19 @@ body{
 .contenedor .contenedor-items .imagen{
     width: 150px;
     height: 100%;
-    border-right: 1px solid black;
+    border: 1px solid black;
 }
 
 .contenedor .contenedor-items .articulo{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    border: 1px solid black;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    border-bottom: 1px rgba(163,163,163,0.6) solid;
+    padding: 0.5rem;
     position: relative;
-    background-color: var(--fondo);
+}
+
+.contenedor .contenedor-items .articulo:last-child{
+    border: none;
 }
 
 .contenedor .contenedor-items .articulo .cantidad {
@@ -59,7 +66,7 @@ body{
 }
 
 .contenedor .contenedor-items .articulo .salto .nombre-articulo{
-    color: red;
+    color: var(--naranja_oscuro);
 }
 
 .contenedor .contenedor-items .articulo .salto .centra-cantidad{
@@ -88,7 +95,8 @@ body{
     display: grid;
     height: 300px;
     width: 275px;
-    background-color: var(--fondo);
+    background-color: #f3f3f3;
+    border-radius: 1rem;
 }
 
 .contenedor .resumen .renglon-1{
@@ -123,7 +131,7 @@ body{
 }
 
 .contenedor .resumen .renglon-3 .texto-renglon-3{
-    color: red;
+    color: var(--naranja_claro);
     text-align: right;
     margin-left: auto;
     padding-right: 10px;
@@ -147,9 +155,9 @@ body{
     .contenedor .resumen-conteiner .resumen{
         width: 100%;
     }
- }
+}
 
- @media screen and (max-width: 768px){
+@media screen and (max-width: 768px){
     .contenedor{
         display: grid;
     }
@@ -160,9 +168,9 @@ body{
         display: grid;
         column-gap: 10px;
     }
- }
+}
 
- @media screen and (max-width: 576px){
+@media screen and (max-width: 576px){
     .contenedor{
         display: grid;
     }
@@ -177,4 +185,4 @@ body{
     .contenedor .contenedor-items .imagen{
         border-bottom: 1px solid black;
     }
- }
+}
