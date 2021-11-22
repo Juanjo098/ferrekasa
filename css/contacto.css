@@ -1,5 +1,14 @@
+:root{
+    --naranja_oscuro: #f26a21;
+    --naranja_claro: #f7911c;
+    --negro: #212121;
+    --blanco: #fff;
+    --opaco: rgba(0, 0, 0, 0.4);
+    --fondo: #e3e4e4;
+}
+
 body{
-    background-color: var(--blanco);
+    background-color: var(--fondo);
 }
 
 .main{
@@ -28,6 +37,11 @@ body{
     width: 1100px;
     margin: 4rem auto;
     text-align: center;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.6);
+}
+
+.iframe-conteiner iframe{
+    width: 100%;
 }
 
 .info-conteiner:hover{
