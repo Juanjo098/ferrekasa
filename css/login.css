@@ -151,10 +151,6 @@ body{
 }
 
 @media screen and (max-width: 1200px){
-    .login-conteiner{
-        width: 80%;
-    }
-
     .login{
         grid-template-columns: repeat(1, 1fr);
     }

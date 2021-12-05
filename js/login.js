@@ -2,6 +2,9 @@ const login = document.getElementById('login');
 const inputs = document.querySelectorAll('#login .login-input');
 const password = document.getElementById('password');
 
+// Validación de campos
+// ----------------------------------------------------------------
+
 const expresiones = {
 	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
@@ -21,19 +24,19 @@ const campos = {
 const validarFormulario = (e) =>{
     switch (e.target.name){
         case 'email':
-            validarCampo(e, expresiones.correo, e.target, e.target.name);
+            validarCampo(expresiones.correo, e.target, e.target.name);
             break;
         case 'password':
             if(e.getModifierState('CapsLock'))
             document.querySelector('.mayus').classList.add('mayus-error');
         else
             document.querySelector('.mayus').classList.remove('mayus-error');
-            validarCampo(e, expresiones.password, e.target, e.target.name);
+            validarCampo(expresiones.password, e.target, e.target.name);
             break;
     }
 };
 
-const validarCampo = (e, expresion, input, campo) =>{
+const validarCampo = (expresion, input, campo) =>{
     if(expresion.test(input.value)){
         
         document.getElementById(`campo-${campo}`).classList.remove('login-campo-incorrecto');
@@ -62,15 +65,53 @@ login.addEventListener('submit', (e) =>{
     e.preventDefault();
 
     if(campos.email && campos.password){
-        login.reset();
+        const loginData = {
+            email: document.querySelector('#email').value,
+            password: document.querySelector('#password').value
+        }
 
-        document.querySelectorAll('.login-campo-correcto').forEach((icon) =>{
-            icon.classList.remove('login-campo-correcto');
-        });
+        if (validarLogin(loginData)){
+            location.reload();
+        }
+        else{
+            alert('El correo y/o la contraseña son incorrectos')
+        }
         
-        document.querySelector('.enviar-error').classList.remove('enviar-mostrar');
+        // document.querySelectorAll('.login-campo-correcto').forEach((icon) =>{
+        //     icon.classList.remove('login-campo-correcto');
+        // });
+        
+        // document.querySelector('.enviar-error').classList.remove('enviar-mostrar');
+        // login.reset();
     }
     else{
         document.querySelector('.enviar-error').classList.add('enviar-mostrar');
     }
 });
+
+// -----------------------------------------------------------------------
+// Validar inicio de sesión
+
+function validarLogin(loginData) {
+    // Se cargan los registros ya existentes
+    const dataBase = JSON.parse(localStorage.getItem('registros')) || [];
+    // Bandera que determina si el correo y la contraseña existen dentro de la base de datos
+    let ban = false;
+    // Ciclo que se encarga de recorrer el arreglo que contiene las cuentas
+    for (let index = 0; index < dataBase.length; index++) {
+        // Se valida que el correo y la contraseña sean iguales
+        if (dataBase[index].email === loginData.email && dataBase[index].password === loginData.password){
+            // Cuando se determina que el correo y la contraseña son iguales, se asigna ese registro como la información de login
+            localStorage.setItem('login', JSON.stringify(dataBase[index]));
+            // Se define la bandera como "true"
+            ban = true;
+            // Se detiene el ciclo si ya se encontró la información de login
+            break;
+        }
+    }
+    // Dependiendo del resultado de buscar en el ciclo, se retorna "true" o "false"
+    if (ban)
+        return true;
+    else
+        return false;
+}

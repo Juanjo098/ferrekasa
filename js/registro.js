@@ -138,20 +138,63 @@ formulario.addEventListener('submit', (e) =>{
     e.preventDefault();
 
     if(campos.email && campos.telefono && campos.password && campos.nombre && campos.apellido && campos.calle && campos.numero && campos.colonia && campos.cPostal && campos.ciudad && campos.estado){
-        resetear();
-        formulario.reset();
+        
+        const registerData = {
+            email: document.querySelector('#email').value,
+            telefono: document.querySelector('#telefono').value,
+            password: document.querySelector('#password').value,
+            nombre: document.querySelector('#nombre').value,
+            apellido: document.querySelector('#apellido').value,
+            calle: document.querySelector('#calle').value,
+            numero: document.querySelector('#numero').value,
+            colonia: document.querySelector('#colonia').value,
+            cPostal: document.querySelector('#cPostal').value,
+            ciudad: document.querySelector('#ciudad').value,
+            estado: document.querySelector('#estado').value,
+        }
 
-        document.querySelectorAll('.formulario-campo-correcto').forEach((icon) =>{
-            icon.classList.remove('formulario-campo-correcto');
-        });
-
-        document.querySelector('.enviar-correcto').classList.add('enviar-mostrar');
-        document.querySelector('.enviar-error').classList.remove('enviar-mostrar');
-        setTimeout(() => {
-            document.querySelector('.enviar-correcto').classList.remove('enviar-mostrar');
-        }, 5000);
+        // Se valida que el correo no exista dentro de la base de datos
+        if (validarRegistro(registerData)){
+            // Se resetan los valores booleanos que determina si los campos fueron llenados adecuadamente
+            resetear();
+            // Se limpian los campos del formulario de registro
+            formulario.reset();
+            // Se eliminan los íconos que indican que un campo fue llenado correctamente
+            document.querySelectorAll('.formulario-campo-correcto').forEach((icon) =>{
+                icon.classList.remove('formulario-campo-correcto');
+            });
+            // Se muestra un mensaje que indica que el registro se completó con éxito
+            document.querySelector('.enviar-correcto').classList.add('enviar-mostrar');
+            // Se remueve el mensaje de error
+            document.querySelector('.enviar-error').classList.remove('enviar-mostrar');
+            // Pasados cinco segundos se remueve el mensaje de éxito
+            setTimeout(() => {
+                document.querySelector('.enviar-correcto').classList.remove('enviar-mostrar');
+            }, 5000);
+        }
+        else
+            alert('El correo que introdujo ya fue registrado. Inténtelo con otro.');
     }
     else{
         document.querySelector('.enviar-error').classList.add('enviar-mostrar');
     }
 });
+
+// ----------------------------------------------------------------------------------------------
+// Validación del registro
+
+function validarRegistro(registerData) {
+    // Se cargan los registros ya existentes
+    let dataBase = JSON.parse(localStorage.getItem('registros')) || [];
+    // Se define si el correo ya está insertado
+    const existe = dataBase.some((registro) => registro.email === registerData.email);
+    // If que valida que el correo no se haya registrado todavía
+    if (!existe){
+        // Se añade a los registros ya existentes el registro que se acaba de hacer
+        dataBase = [...dataBase, registerData];
+        localStorage.setItem('registros', JSON.stringify(dataBase));
+        return true;
+    }
+    else
+        return false;
+}
