@@ -75,6 +75,10 @@ body{
     padding: 0.1rem 1rem;
 }
 
+.product-stock.agotado{
+    background-color: darkgray;
+}
+
 /* Botón de comprar */
 .btn-comprar{
     font-weight: 700;
