@@ -1,48 +1,49 @@
-const productos =[
+// Arreglo que contiene la información de los productos
+const dataBaseProductos =[
     {
         id: 1 /* (entero) */,
         nombre: "Disco De Diamante, Rin Continuo, 4-1/2' " /* (cadena) */,
-        imagen: ("pro1.jpeg") ,
+        imagen: "pro1.jpeg",
         precio: 149 ,
         marca: "Truper" /* (cadena) */,
         categoria: "Consumibles" /* (cadena) */,
-        existencia: 100/* (entero) todos con el mismo número de existencias */
+        existencia: 10/* (entero) todos con el mismo número de existencias */
     },
     {
         id: 2 /* (entero) */,
         nombre: "Pinzas pela cables automática " /* (cadena) */,
-        imagen: ("pro2.jpeg"),
+        imagen: "pro2.jpeg",
         precio: 355,
         marca: "Truper" /* (cadena) */,
         categoria: "Herramientas" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 3 /* (entero) */,
-        nombre: ("Multímetro Digital Prof. 500 V") /* (cadena) */,
-        imagen: ("pro3.jpeg"),
+        nombre: "Multímetro Digital Prof. 500 V" /* (cadena) */,
+        imagen: "pro3.jpeg",
         precio: 355,
         marca: "Truper" /* (cadena) */,
         categoria: "Herramientas" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 4 /* (entero) */,
         nombre: "Desbrozadora de césped Truper DES-1000 1000W color negro y naranja 127V " /* (cadena) */,
-        imagen:("pro4.jpeg"), ///(cadena)/
-        precio: (1975),
-        marca: ("Truper" )/* (cadena) */,
-        categoria: ("Herramientas") /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        imagen:"pro4.jpeg", ///(cadena)/
+        precio: 1975,
+        marca: "Truper"/* (cadena) */,
+        categoria: "Herramientas" /* (cadena) */,
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 5 /* (entero) */,
         nombre: "Marro Octagonal 4 Lbs, Mango Fibra De Vidrio" /* (cadena) */,
-        imagen: ("pro5.jpeg"),
+        imagen: "pro5.jpeg",
         precio: 280,
-        marca: ("Truper") /* (cadena) */,
+        marca: "Truper" /* (cadena) */,
         categoria: "Herramientas" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 6 /* (entero) */,
@@ -51,7 +52,7 @@ const productos =[
         precio: 1650,
         marca: "Foset" /* (cadena) */,
         categoria: "Plomeria" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 7 /* (entero) */,
@@ -60,7 +61,7 @@ const productos =[
         precio: 199,
         marca: "Foset" /* (cadena) */,
         categoria: "Plomeria" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 8 /* (entero) */,
@@ -69,7 +70,7 @@ const productos =[
         precio: 76,
         marca: "Foset" ,
         categoria: "Plomeria" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 9 /* (entero) */,
@@ -78,7 +79,7 @@ const productos =[
         precio: 124,
         marca: "Foset" /* (cadena) */,
         categoria: "Plomeria" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 10 /* (entero) */,
@@ -87,7 +88,7 @@ const productos =[
         precio: 2030,
         marca: "Foset Element" /* (cadena) */,
         categoria: "Plomeria" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 11 /* (entero) */,
@@ -96,7 +97,7 @@ const productos =[
         precio: 169,
         marca: "Foset Rivera" /* (cadena) */,
         categoria: "Plomeria" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 12 /* (entero) */,
@@ -105,7 +106,7 @@ const productos =[
         precio: 129,
         marca: "Fiero" /* (cadena) */,
         categoria: "Consumibles" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 13/* (entero) */,
@@ -114,7 +115,7 @@ const productos =[
         precio: 89,
         marca: "Fiero" /* (cadena) */,
         categoria: "Consumibles" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 14/* (entero) */,
@@ -123,7 +124,7 @@ const productos =[
         precio: 56,
         marca: "Fiero" /* (cadena) */,
         categoria: "Consumibles" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 15/* (entero) */,
@@ -132,7 +133,7 @@ const productos =[
         precio: 89,
         marca: "Fiero" /* (cadena) */,
         categoria: "Consumibles" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 16/* (entero) */,
@@ -141,7 +142,7 @@ const productos =[
         precio: 26,
         marca: "Volteck" /* (cadena) */,
         categoria: "Consumibles" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 17/* (entero) */,
@@ -150,7 +151,7 @@ const productos =[
         precio: 2499,
         marca: "Pretul" /* (cadena) */,
         categoria: "Herramientas" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 18/* (entero) */,
@@ -159,7 +160,7 @@ const productos =[
         precio: 2230,
         marca: "Pretul" /* (cadena) */,
         categoria: "Herramientas" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 19/* (entero) */,
@@ -168,7 +169,7 @@ const productos =[
         precio: 775,
         marca: "Pretul" /* (cadena) */,
         categoria: "Herramientas" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 20/* (entero) */,
@@ -177,7 +178,7 @@ const productos =[
         precio: 55,
         marca: "Pretul" /* (cadena) */,
         categoria: "Herramientas" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 21/* (entero) */,
@@ -186,7 +187,7 @@ const productos =[
         precio: 105,
         marca: "Volteck" /* (cadena) */,
         categoria: "Consumibles" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 22/* (entero) */,
@@ -195,7 +196,7 @@ const productos =[
         precio: 30,
         marca: "Volteck" /* (cadena) */,
         categoria: "Consumibles" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 23/* (entero) */,
@@ -204,7 +205,7 @@ const productos =[
         precio: 16,
         marca: "Volteck" /* (cadena) */,
         categoria: "Consumibles" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 24/* (entero) */,
@@ -213,7 +214,7 @@ const productos =[
         precio: 178,
         marca: "Volteck" /* (cadena) */,
         categoria: "Consumibles" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 25/* (entero) */,
@@ -222,7 +223,7 @@ const productos =[
         precio: 125,
         marca: "Volteck" /* (cadena) */,
         categoria: "Consumibles" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 26/* (entero) */,
@@ -231,7 +232,7 @@ const productos =[
         precio: 23,
         marca: "Volteck" /* (cadena) */,
         categoria: "Consumibles" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 27/* (entero) */,
@@ -240,7 +241,7 @@ const productos =[
         precio: 1085,
         marca: "Fiero" /* (cadena) */,
         categoria: "Consumibles" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 28/* (entero) */,
@@ -249,7 +250,7 @@ const productos =[
         precio: 1696,
         marca: "Fiero" /* (cadena) */,
         categoria: "Herramientas" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 29/* (entero) */,
@@ -258,7 +259,7 @@ const productos =[
         precio: 1696,
         marca: "CINSA" /* (cadena) */,
         categoria: "Plomeria" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
     {
         id: 30/* (entero) */,
@@ -267,7 +268,7 @@ const productos =[
         precio: 315,
         marca: "Truper" /* (cadena) */,
         categoria: "Consumibles" /* (cadena) */,
-        existencia: 100 /* (entero) todos con el mismo número de existencias */
-    },
-    
+        existencia: 10 /* (entero) todos con el mismo número de existencias */
+    }
 ]
+
