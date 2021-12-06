@@ -1,5 +1,6 @@
-const compra = document.getElementById('btn-compra'); 
+const btnContinuarCompra = document.getElementById('btn-compra'); 
 
-compra.addEventListener('click', () =>{
+btnContinuarCompra.addEventListener('click', () =>{
     location.href = "pago.html";
-});
+}); 
+

@@ -50,11 +50,7 @@ body{
 }
 
 .contenedor .contenedor-items .articulo .cantidad {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 20px;
-    border: 1px solid black;
-    background-color: var(--naranja_claro);
+    margin-top: 10px;
 }
 
 .contenedor .contenedor-items .articulo .cantidad .boton-cantidad:hover {
