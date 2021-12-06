@@ -86,7 +86,7 @@ const dataBaseProductos =[
         nombre: "Monomando PARA FREGADERO, CUELLO ALTO" /* (cadena) */,
         imagen: "pro10.jpeg",
         precio: 2030,
-        marca: "Foset Element" /* (cadena) */,
+        marca: "Foset" /* (cadena) */,
         categoria: "Plomeria" /* (cadena) */,
         existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
@@ -95,7 +95,7 @@ const dataBaseProductos =[
         nombre: "Contracanasta 3-12” Riviera de acero inoxidable con tapa" /* (cadena) */,
         imagen: "pro11.jpeg" ,
         precio: 169,
-        marca: "Foset Rivera" /* (cadena) */,
+        marca: "Foset" /* (cadena) */,
         categoria: "Plomeria" /* (cadena) */,
         existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
@@ -270,5 +270,5 @@ const dataBaseProductos =[
         categoria: "Consumibles" /* (cadena) */,
         existencia: 10 /* (entero) todos con el mismo número de existencias */
     }
-]
+];
 
