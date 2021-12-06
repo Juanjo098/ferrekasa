@@ -24,6 +24,8 @@ body{
     padding: 2rem;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.6);
     background-color: var(--blanco);
+    border-radius: 1rem;
+    margin-top: 10rem;
 }
 
 @media screen and (max-width: 992px){
