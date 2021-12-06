@@ -2,10 +2,6 @@ const menu_icon = document.getElementById('menu-icon');
 const menu = document.getElementById('menu');
 const busqueda = document.querySelector('.busqueda button');
 
-busqueda.addEventListener('click', () =>{
-    location.href = 'busqueda.html';
-});
-
 menu_icon.addEventListener('click', () =>{
     menu.classList.toggle('mostrar-menu');
 });

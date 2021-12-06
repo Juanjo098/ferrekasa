@@ -7,7 +7,7 @@ cargarEventListeners();
 // Función que se encarga de añadir los addEventListeners
 function cargarEventListeners() {
     // Se carga la información de login
-    document.addEventListener('DOMContentLoaded', cargarLogin());
+    document.addEventListener('load', cargarLogin());
     // Se previene que el usuario acceda al a la página de inicio de sesión si ya está logeado
     loginNSingin[0].addEventListener('click', (e) =>{
         if (loginNSingin[0].textContent != "Iniciar sesión")
