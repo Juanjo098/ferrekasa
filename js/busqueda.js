@@ -209,7 +209,7 @@ const dataBaseProductos =[
     },
     {
         id: 24/* (entero) */,
-        nombre: "Portalámparas con censor de movimiento " /* (cadena) */,
+        nombre: "Portalámparas con sensor de movimiento " /* (cadena) */,
         imagen: "pro24.jpeg",
         precio: 178,
         marca: "Volteck" /* (cadena) */,
