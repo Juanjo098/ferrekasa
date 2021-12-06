@@ -273,8 +273,8 @@ const dataBaseProductos =[
 ];
 
 //Valores
-let precioMinimo=document.querySelector("#txtPreciomin");
-let precioMaximo=document.querySelector("#txtPreciomax");
+const precioMinimo=document.querySelector("#txtPreciomin");
+const precioMaximo=document.querySelector("#txtPreciomax");
 
 //Contenedor
 const productosBuscados=document.querySelector(".productos-conteiner");
