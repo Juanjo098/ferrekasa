@@ -1,7 +1,9 @@
+// ----------------------------------------------------------------
+// Declaración de variables y constantes
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario .formulario-input');
 
-
+// Objeto que contiene las expresiones regulares con las que que se comparará el contenido de los inputs
 const expresiones = {
 	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
@@ -13,6 +15,7 @@ const expresiones = {
     numero: /^[0-9]{1,5}$/
 }
 
+// Objeto que contiene banderas que indican qué campo ha sido validado
 const campos = {
     email: false,
     telefono: false,
@@ -27,7 +30,25 @@ const campos = {
     estado: false,
 }
 
-const resetear = () =>{
+// ----------------------------------------------------------------
+// Carga de los eventos
+
+cargarEventListeners();
+
+function cargarEventListeners(){
+    inputs.forEach((input) => {
+        input.addEventListener('keyup', e => validarFormulario(e));
+        input.addEventListener('blur', e => validarFormulario(e));
+    });
+
+    formulario.addEventListener('submit', e => formEvent(e));
+}
+
+// ----------------------------------------------------------------
+// Declaración de funciones
+
+// Función que regresa a falso todas la banderas del objeto "campos"
+function resetear (){
     campos['email'] = false;
     campos['telefono'] = false;
     campos['password'] = false;
@@ -41,7 +62,11 @@ const resetear = () =>{
     campos['estado'] = false;
 };
 
-const validarFormulario = (e) =>{
+// Función que se encarga de validar el contenido de los inputs del formulario
+// Parámetros:
+// e = input que lanza el evento
+function validarFormulario(e){
+    // Switch que determina qué input lanzó el evento
     switch (e.target.name){
         case 'email':
             validarCampo(expresiones.correo, e.target, e.target.name);
@@ -87,9 +112,14 @@ const validarFormulario = (e) =>{
     }
 };
 
-const validarCampo = (expresion, input, campo) =>{
+// Función que se encarga de validar el campo
+// Parámetros:
+// exprecion: contiene la expresión regular con la que se va a hacer la comparación
+// input: contenido del input
+// campo: nombre del input que lanzó el evento
+function validarCampo(expresion, input, campo){
+    // Se compara el contenido del input que lanzó el evento contra la expresion regular
     if(expresion.test(input.value)){
-        
         document.getElementById(`campo-${campo}`).classList.remove('formulario-campo-incorrecto');
         document.getElementById(`campo-${campo}`).classList.add('formulario-campo-correcto');
         document.querySelector(`#campo-${campo} i`).classList.remove('fa-times-circle');
@@ -107,7 +137,8 @@ const validarCampo = (expresion, input, campo) =>{
     }
 };
 
-const validarContraseña = () =>{
+// Función que compara el input "password" contra "confirm-password" para ver que sean iguales
+function validarContraseña(){
     const password = document.getElementById('password');
     const password2 = document.getElementById('confirm-password');
 
@@ -129,16 +160,13 @@ const validarContraseña = () =>{
     }
 };
 
-inputs.forEach((input) => {
-    input.addEventListener('keyup', validarFormulario);
-    input.addEventListener('blur', validarFormulario);
-});
-
-formulario.addEventListener('submit', (e) =>{
+// Función que se ejecuta cuando el formulario lanza un evento de tipo "submit"
+function formEvent(e){
+    // Se previene la acción por defecto del evento "submit"
     e.preventDefault();
-
-    if(campos.email && campos.telefono && campos.password && campos.nombre && campos.apellido && campos.calle && campos.numero && campos.colonia && campos.cPostal && campos.ciudad && campos.estado){
-        
+    // Se convierte el objeto "campos" en un arreglo y se lo recorre en busca de un valor que sea falso
+    if (!Object.values(campos).some(campo => campo == false)){
+        // Se crea un objeto que contenga los datos introducidos en los inputs
         const registerData = {
             email: document.querySelector('#email').value,
             telefono: document.querySelector('#telefono').value,
@@ -175,14 +203,11 @@ formulario.addEventListener('submit', (e) =>{
         else
             alert('El correo que introdujo ya fue registrado. Inténtelo con otro.');
     }
-    else{
+    else
         document.querySelector('.enviar-error').classList.add('enviar-mostrar');
-    }
-});
+}
 
-// ----------------------------------------------------------------------------------------------
-// Validación del registro
-
+// Función que valida el registro
 function validarRegistro(registerData) {
     // Se cargan los registros ya existentes
     let dataBase = JSON.parse(localStorage.getItem('registros')) || [];
