@@ -314,13 +314,13 @@ function sacarValores(){
         if(Number.isNaN(valorMinimo) || Number.isNaN(valorMaximo))
             alert("Debe escribir algún rango de precio válido \nEj: 149 a 150")
     }
-    while(productosBuscados.firstChild)
-        productosBuscados.removeChild(productosBuscados.firstChild);
     imprimirProductos();
 }
 
 //Función que imprime los productos que cumplan con las características
 function imprimirProductos(){
+    while(productosBuscados.firstChild)
+        productosBuscados.removeChild(productosBuscados.firstChild);
     dataBaseProductos.forEach(producto =>{
             if(!botonTruper.checked && !botonPretul.checked && !botonFiero.checked && !botonFoset.checked && !botonVolteck.checked && !botonCinsa.checked){
                 if(producto.precio>=valorMinimo && producto.precio<=valorMaximo)
@@ -418,8 +418,16 @@ function imprimirProductos(){
 }
 
 function botonRadioPresionado(){
-    precioMinimo.disabled = true;
-    precioMaximo.disabled = true;
-    precioMinimo.value="--------";
-    precioMaximo.value="--------";
+    if(!botonTruper.checked && !botonPretul.checked && !botonFiero.checked && !botonFoset.checked && !botonVolteck.checked && !botonCinsa.checked){
+        precioMinimo.disabled = false;
+        precioMaximo.disabled = false;
+        precioMinimo.value="";
+        precioMaximo.value="";
+    }
+    else{
+        precioMinimo.disabled = true;
+        precioMaximo.disabled = true;
+        precioMinimo.value="--------";
+        precioMaximo.value="--------";
+    }
 }
