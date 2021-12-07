@@ -1,13 +1,13 @@
 //Declarar variables
 const listaProductos = document.querySelector('.lista-productos');
-const CarritoLocalE=document.querySelector(".productos-conteiner");
-const numProductos=document.querySelector("#cantidad");
-const BDProductos =[
+const CarritoLocalE = document.querySelector(".productos-conteiner");
+const numProductos = document.querySelector("#cantidad");
+const BDProductos = [
     {
         id: 1 /* (entero) */,
         nombre: "Disco De Diamante, Rin Continuo, 4-1/2' " /* (cadena) */,
         imagen: "pro1.jpeg",
-        precio: 149 ,
+        precio: 149,
         marca: "Truper" /* (cadena) */,
         categoria: "Consumibles" /* (cadena) */,
         existencia: 10/* (entero) todos con el mismo número de existencias */
@@ -33,7 +33,7 @@ const BDProductos =[
     {
         id: 4 /* (entero) */,
         nombre: "Desbrozadora de césped Truper DES-1000 1000W color negro y naranja 127V " /* (cadena) */,
-        imagen:"pro4.jpeg", ///(cadena)/
+        imagen: "pro4.jpeg", ///(cadena)/
         precio: 1975,
         marca: "Truper"/* (cadena) */,
         categoria: "Herramientas" /* (cadena) */,
@@ -71,7 +71,7 @@ const BDProductos =[
         nombre: "Válvula esfera roscable ½ " /* (cadena) */,
         imagen: "pro8.jpeg",
         precio: 76,
-        marca: "Foset" ,
+        marca: "Foset",
         categoria: "Plomeria" /* (cadena) */,
         existencia: 10 /* (entero) todos con el mismo número de existencias */
     },
@@ -96,7 +96,7 @@ const BDProductos =[
     {
         id: 11 /* (entero) */,
         nombre: "Contracanasta 3-12” Riviera de acero inoxidable con tapa" /* (cadena) */,
-        imagen: "pro11.jpeg" ,
+        imagen: "pro11.jpeg",
         precio: 169,
         marca: "Foset" /* (cadena) */,
         categoria: "Plomeria" /* (cadena) */,
@@ -159,7 +159,7 @@ const BDProductos =[
     {
         id: 18/* (entero) */,
         nombre: "Hidrolavadora eléctrica 1300 Psi " /* (cadena) */,
-        imagen: "pro18.jpeg" ,
+        imagen: "pro18.jpeg",
         precio: 2230,
         marca: "Pretul" /* (cadena) */,
         categoria: "Herramientas" /* (cadena) */,
@@ -168,7 +168,7 @@ const BDProductos =[
     {
         id: 19/* (entero) */,
         nombre: "Taladro eléctrico inalámbrico 600rpm 12v  " /* (cadena) */,
-        imagen: "pro19.jpeg" ,
+        imagen: "pro19.jpeg",
         precio: 775,
         marca: "Pretul" /* (cadena) */,
         categoria: "Herramientas" /* (cadena) */,
@@ -177,7 +177,7 @@ const BDProductos =[
     {
         id: 20/* (entero) */,
         nombre: "Flexómetro/ cinta métrica de 5m " /* (cadena) */,
-        imagen: "pro20.jpeg" ,
+        imagen: "pro20.jpeg",
         precio: 55,
         marca: "Pretul" /* (cadena) */,
         categoria: "Herramientas" /* (cadena) */,
@@ -186,7 +186,7 @@ const BDProductos =[
     {
         id: 21/* (entero) */,
         nombre: "Extensión de uso rudo cal. 16 4m " /* (cadena) */,
-        imagen: "pro21.jpeg" ,
+        imagen: "pro21.jpeg",
         precio: 105,
         marca: "Volteck" /* (cadena) */,
         categoria: "Consumibles" /* (cadena) */,
@@ -279,37 +279,37 @@ const BDProductos =[
 let carrito = [];
 cargarEventListeners();
 
-function cargarEventListeners(){
-    CarritoLocalE.addEventListener('click', e=>{
+function cargarEventListeners() {
+    CarritoLocalE.addEventListener('click', e => {
         cargarProducto(e);
         actualizarNumeroProductos();
+        sincronizarLocalStorage();
     });
-        carrito=JSON.parse(localStorage.getItem('CarritoLE'))||[];
-        actualizarNumeroProductos();
+    carrito = JSON.parse(localStorage.getItem('CarritoLE')) || [];
+    actualizarNumeroProductos();
 }
 
-
-function cargarProducto(e){
-  e.preventDefault();
-        if(e.target.classList.contains('btn-comprar'))
-        {
-            const producto = e.target.parentElement;
-            const nomProducto=producto.querySelector(".product-name");
-            const index=BDProductos.findIndex(producto => producto.nombre==nomProducto);
-            if (index != -1){
-                const infoProducto=BDProductos[index];
-                 if (infoProducto.existencia > 0){
-                    carrito=[...carrito, infoProducto]
-                }   
+function cargarProducto(e) {
+    e.preventDefault();
+    if (e.target.classList.contains('btn-comprar')) {
+        const producto = e.target.parentElement;
+        const nomProducto = producto.querySelector(".product-name").textContent;
+        const index = BDProductos.findIndex(producto => producto.nombre == nomProducto);
+        if (index != -1) {
+            const infoProducto = BDProductos[index];
+            if (!carrito.some(producto => producto.id == infoProducto.id)) {
+                if (infoProducto.existencia > 0) {
+                    carrito = [...carrito, infoProducto]
+                }
             }
-                         
         }
+    }
 }
 
-function sincronizarLocalStorage(){
+function sincronizarLocalStorage() {
     localStorage.setItem('CarritoLE', JSON.stringify(carrito));
 }
 
-function actualizarNumeroProductos(){
-    numProductos.textContent=carrito.length;
+function actualizarNumeroProductos() {
+    numProductos.textContent = carrito.length;
 }
