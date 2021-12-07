@@ -288,7 +288,6 @@ function cargarEventListeners(){
         actualizarNumeroProductos();
 }
 
-console.log('Hola');
 
 function cargarProducto(e){
   e.preventDefault();
@@ -297,10 +296,13 @@ function cargarProducto(e){
             const producto = e.target.parentElement;
             const nomProducto=producto.querySelector(".product-name");
             const index=BDProductos.findIndex(producto => producto.nombre==nomProducto);
-            const infoProducto=BDProductos[index];
-            if (infoProducto.existencia > 0){
-                carrito=[...carrito, infoProducto]
-            }                
+            if (index != -1){
+                const infoProducto=BDProductos[index];
+                 if (infoProducto.existencia > 0){
+                    carrito=[...carrito, infoProducto]
+                }   
+            }
+                         
         }
 }
 
