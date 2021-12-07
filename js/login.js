@@ -95,23 +95,15 @@ login.addEventListener('submit', (e) =>{
 function validarLogin(loginData) {
     // Se cargan los registros ya existentes
     const dataBase = JSON.parse(localStorage.getItem('registros')) || [];
-    // Bandera que determina si el correo y la contraseña existen dentro de la base de datos
-    let ban = false;
-    // Ciclo que se encarga de recorrer el arreglo que contiene las cuentas
-    for (let index = 0; index < dataBase.length; index++) {
-        // Se valida que el correo y la contraseña sean iguales
-        if (dataBase[index].email === loginData.email && dataBase[index].password === loginData.password){
-            // Cuando se determina que el correo y la contraseña son iguales, se asigna ese registro como la información de login
-            localStorage.setItem('login', JSON.stringify(dataBase[index]));
-            // Se define la bandera como "true"
-            ban = true;
-            // Se detiene el ciclo si ya se encontró la información de login
-            break;
-        }
-    }
-    // Dependiendo del resultado de buscar en el ciclo, se retorna "true" o "false"
-    if (ban)
+    // Se busca el índice de un  regsitro cuyo email y password coincidan
+    const index = dataBase.findIndex((data) => data.email == loginData.email && data.password == loginData.password);
+    // Si la constante "index" es distianta de -1, significa que se encontró un registro que coinside
+    if (index != -1){
+        // Se añade al localStorage la información del usuario que ingreso
+        localStorage.setItem('login', JSON.stringify(dataBase[index]));
         return true;
+    }
+    // Si la constante "index" es igual de -1, significa que no se encontró un registro que coinside
     else
         return false;
 }
