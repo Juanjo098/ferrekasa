@@ -273,7 +273,13 @@ const dataBaseProductos = [
 ];
 
 const contenidoIndex = document.querySelector('.productos-conteiner');
-pintarProductosIndex();
+
+cargarEventListeners();
+
+function cargarEventListeners() {
+    document.addEventListener('DOMContentLoaded', pintarProductosIndex);
+    contenidoIndex.addEventListener('click', e => informacionProducto(e));
+}
 
 function pintarProductosIndex() {
 
@@ -282,20 +288,23 @@ function pintarProductosIndex() {
         if (index.existencia > 0) {
             const divHtml = document.createElement('div');
 
-
             divHtml.setAttribute("class", "producto");
 
-            divHtml.innerHTML = `
-     
-         <img src="img/productos/${index.imagen}" alt="" class="product-img">
-          <a href="producto.html" class="product-name" >${index.nombre}</a>
-         <p class="product-price">$${index.precio}</p>
-         <p class="product-stock">En existencia</p>
-         <button type="button" class="btn-comprar">Comprar</button>
+            divHtml.innerHTML = 
+            `<img src="img/productos/${index.imagen}" alt="" class="product-img">
+            <a href="producto.html" class="product-name" >${index.nombre}</a>
+            <p class="product-price">$${index.precio}</p>
+            <p class="product-stock">En existencia</p>
+            <button type="button" class="btn-comprar">Comprar</button>`
 
-                                 `
-                                 
             contenidoIndex.appendChild(divHtml);
         }
     })
+}
+
+function informacionProducto(e) {
+    if (e.target.classList.contains("product-name")){
+        localStorage.setItem("producto", JSON.stringify(dataBaseProductos.filter(producto => producto.nombre == e.target.textContent)))
+        location.href = "producto.html";
+    }
 }
