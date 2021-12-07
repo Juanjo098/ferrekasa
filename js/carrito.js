@@ -58,7 +58,7 @@ function pintarRenglonesTabla() {
         divHtml.setAttribute("class", "articulo");
         divHtml.innerHTML = ` <div>
                                     <img class="imagen" src="img/productos/${producto.imagen}">
-                                </div>
+                               </div>
 
                                 <div class="salto">
                                     <p class="nombre-articulo">${producto.nombre}</p>
