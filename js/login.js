@@ -114,7 +114,7 @@ function formEvent(e){
     // Se previene el evento "submit"
     e.preventDefault();
     // Se determina si el email y el password son correctos
-    if(campos.email && campos.password){
+    if(!Object.values(campos).some(campo => campo == false)){
         // Se crea un objeto que guardar el email y el password
         const loginData = {
             email: document.querySelector('#email').value,
