@@ -1,8 +1,8 @@
 const numProductos=document.querySelector("#cantidad");
-let carrito=[];
+let listaProductos=[];
 actualizarNumeroProductos();
 
 function actualizarNumeroProductos(){
-    carrito=JSON.parse(localStorage.getItem('CarritoLE'))||[];
-    numProductos.textContent=carrito.length;
+    listaProductos=JSON.parse(localStorage.getItem('CarritoLE'))||[];
+    numProductos.textContent=listaProductos.length;
 }

@@ -296,8 +296,9 @@ function cargarProducto(e) {
         const nomProducto = producto.querySelector(".product-name").textContent;
         const index = BDProductos.findIndex(producto => producto.nombre == nomProducto);
         if (index != -1) {
-            const infoProducto = BDProductos[index];
+            let infoProducto = BDProductos[index];
             if (!carrito.some(producto => producto.id == infoProducto.id)) {
+                infoProducto = {...infoProducto, cantidad: 1};
                 if (infoProducto.existencia > 0) {
                     carrito = [...carrito, infoProducto]
                 }

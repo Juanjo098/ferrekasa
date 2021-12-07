@@ -1,31 +1,63 @@
-const btnContinuarCompra = document.getElementById('btn-compra'); 
+const btnContinuarCompra = document.getElementById('btn-compra');
 
-btnContinuarCompra.addEventListener('click', () =>{
-    location.href = "pago.html";
-}); 
+btnContinuarCompra.addEventListener('click', () => {
+    let ban = true;
+    carrito.forEach(producto => {
+        if (producto.existencia < producto.cantidad){
+            alert(`Sólo hay ${producto.existencia} de ${producto.nombre}`);
+            ban = false;
+        }
+    });
+    if (ban) {
+        location.href = "pago.html";
+    }
+});
 
 const contenidoCarrito = document.querySelector('.contenedor-items');
 const totalProductos = document.querySelector('.total-productos');
 const costoEnvio = document.querySelector('.costo-envio');
 const montoTotal = document.querySelector('.monto-total');
-let carrito=[];
+let carrito = [];
 
 cargarEvenntListeners();
 
-function cargarEvenntListeners(){
-    document.addEventListener('DOMContentLoaded', () =>{
+function cargarEvenntListeners() {
+    document.addEventListener('DOMContentLoaded', () => {
         carrito = JSON.parse(localStorage.getItem('CarritoLE')) || [];
         pintarRenglonesTabla();
     });
+    contenidoCarrito.addEventListener('input', (e) => {
+        eventoInput(e);
+        realizarCalculos();
+        sincronizarLocalStorage();
+    })
+}
+
+function eventoInput(e) {
+    const child = e.target.parentNode.parentNode.parentNode
+    const parent = child.parentNode;
+    const index = childIndex(child, parent)
+    carrito[index].cantidad = parseInt(e.target.value);
+}
+
+function childIndex(child, parent){
+    let childIndex;
+    for (let index = 0; index < parent.childNodes.length; index++){
+        if (child == parent.childNodes[index]){
+            childIndex = index;
+            break;
+        }
+    }
+    return childIndex;
 }
 
 // Funcion que renderice los div en el carrito
-function pintarRenglonesTabla(){
-    carrito.forEach( producto => {
+function pintarRenglonesTabla() {
+    carrito.forEach(producto => {
         const divHtml = document.createElement('div');
         divHtml.setAttribute("class", "articulo");
-        divHtml.innerHTML=     ` <div>
-                                    <img class="imagen" src=${producto.imagen}>
+        divHtml.innerHTML = ` <div>
+                                    <img class="imagen" src="img/productos/${producto.imagen}">
                                 </div>
 
                                 <div class="salto">
@@ -38,17 +70,17 @@ function pintarRenglonesTabla(){
                                     </div>
 
                                     <div>
-                                        <p class="precio-articulo">${producto.precio}</p>
+                                        <p class="precio-articulo">${formatoMoneda(producto.precio)}</p>
                                     </div>
                                 </div>
 
                                 <div class="salto">
                                     <div class="centra-cantidad">
-                                        <p>${producto.cantidad}</p>
+                                        <p>Cantidad</p>
                                     </div>
 
                                     <div class="cantidad" id="cantidad">
-                                        <input type="number" value="1" min="1" max="10">
+                                        <input type="number" value="${producto.cantidad}" min="1" max="20">
                                     </div>
                                 </div>
 
@@ -72,34 +104,30 @@ function pintarRenglonesTabla(){
                                         </a>
                                     </div>
                                 </div>`
-        contenidoCarrito.appendChild(divHtml); 
+        contenidoCarrito.appendChild(divHtml);
     });
-    sincronizarLocalStorage(); 
-    
+    sincronizarLocalStorage();
+
     realizarCalculos();
 }
 
 // Funcion que realice los calculos
-function realizarCalculos(){
+function realizarCalculos() {
     let subTotal = 0;
-    let totalpro = 0;
-    let costoev = 0;
+    let envio;
+    let total = 0;
 
-    carrito.forEach(producto =>{
-        producto.precio= producto.precio.replace('$', '');
-        subTotal = parseFloat(producto.precio) * producto.cantidad;
-        montot += subTotal;
-        totalpro += producto.cantidad;
+    carrito.forEach(producto => {
+        subTotal += producto.precio * producto.cantidad;
     });
 
-    if(Total < 2000)
-       costoev = 250;
+    envio = subTotal > 2000 ? 0 : 250; 
     // Calcular al Gran Total
-    let granTotal = Total + costoev;
+    total = subTotal + envio;
     //DEsplegar los resultados en la pagina
-    totalProductos.textContent = formatoMoneda(totalpro);
-    costoEnvio.textContent = formatoMoneda(costoev);
-    montoTotal.textContent = formatoMoneda(granTotal);     
+    totalProductos.textContent = formatoMoneda(subTotal);
+    costoEnvio.textContent = formatoMoneda(envio);
+    montoTotal.textContent = formatoMoneda(total);
 }
 
 // Funcion para dar formato a numeros
@@ -112,20 +140,18 @@ function formatoMoneda(cantidad) {
 }
 
 // Funcion que elimina un producto del carrito
-function eliminarProduto(idProducto){
+function eliminarProduto(idProducto) {
     //alert("Desde eliminar producto" + idProducto);
     // Filtrar productos que no correspondan con el id del producto que quiero eliminar
     carrito = carrito.filter(producto => producto.id != idProducto);
     // Renderizar div donde se posicionan los productos
-    pintarRenglonesTabla();
-
-    // Realizar los calculos
-    realizarCalculos();
+    sincronizarLocalStorage();
+    location.reload();
 }
 
 // Función que actualice en LocalStorage
-function sincronizarLocalStorage(){
-    localStorage.setItem('CarritoGpoB', JSON.stringify(carrito));
+function sincronizarLocalStorage() {
+    localStorage.setItem('CarritoLE', JSON.stringify(carrito));
 }
 
 
