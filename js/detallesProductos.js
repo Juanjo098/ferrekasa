@@ -1,5 +1,4 @@
-// Arreglo que contiene la información de los productos
-const productos = [
+const productos2 = [
     {
         id: 1 /* (entero) */,
         nombre: "Disco De Diamante, Rin Continuo, 4-1/2' " /* (cadena) */,
@@ -272,31 +271,17 @@ const productos = [
     }
 ];
 
-const contenidoIndex = document.querySelector('.productos-conteiner');
+const contenidoIndex2 = document.querySelector('.productos-conteiner');
 
 cargarEventListeners();
 
 function cargarEventListeners() {
-    document.addEventListener('DOMContentLoaded', pintarProductosIndex);
+    contenidoIndex2.addEventListener('click', e => informacionProducto(e));
 }
 
-function pintarProductosIndex() {
-
-    productos.forEach(index => {
-
-        if (index.existencia > 0) {
-            const divHtml = document.createElement('div');
-
-            divHtml.setAttribute("class", "producto");
-
-            divHtml.innerHTML = 
-            `<img src="img/productos/${index.imagen}" alt="" class="product-img">
-            <a href="producto.html" class="product-name" >${index.nombre}</a>
-            <p class="product-price">$${index.precio}</p>
-            <p class="product-stock">En existencia</p>
-            <button type="button" class="btn-comprar">Comprar</button>`
-
-            contenidoIndex.appendChild(divHtml);
-        }
-    })
+function informacionProducto(e) {
+    if (e.target.classList.contains("product-name")){
+        localStorage.setItem("producto", JSON.stringify(productos2.filter(producto => producto.nombre == e.target.textContent)))
+        location.href = "producto.html";
+    }
 }
