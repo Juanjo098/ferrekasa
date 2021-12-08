@@ -1,33 +1,21 @@
-
-//boton de buscar por nombre 
-const botonBusquedaArriba = document.querySelector('.boton-buscar')
-//constsante que contiene las categorias 
 const categorias = document.querySelectorAll('.categorias a');
+const btnBuscar = document.querySelector('#btn-buscar');
+const input = document.querySelector('#busqueda');
 
-
-//funcion para crear almacenamiento de manera local de las categorias
 cargarEventListeners();
 
-function cargarEventListeners() {//CREAMOS UN ALMACENAMIENTO DE MANERA LOCAL PARA PODER ACEDER ALO QUE HIZO FER 
-    //creamos el almacenamiento local 
+function cargarEventListeners() {
     categorias.forEach(categoria => categoria.addEventListener('click', e => categoriaSelecionada(e)))
-
+    btnBuscar.addEventListener('click', nombreBuscado)
 }
 
-//botonBusquedaArriba.addEventListener('click', cargarPorNombre())
-
-
-//FUNCION PARA PODER VER CUAL FUE LA CATEGORIA SELECIONADA 
-function categoriaSelecionada(categoria) {
-    categoria.preventDefault();
-    localStorage.setItem('categoriaprecionada',JSON.stringify({cat:categoria.target.id}))//LO ULTIMO ES PARA APUNTAR LA CATEGORIA
-    location.href='busqueda.html';//esto recarga la pagina 
+function categoriaSelecionada(e) {
+    e.preventDefault();
+    localStorage.setItem('categoria', JSON.stringify({categoria: e.target.id}))
+    location.href = 'busqueda.html';
 }
 
-
-
-
-
-
-
-
+function nombreBuscado() {
+    localStorage.setItem('nombre', JSON.stringify({nombre: input.value.toUpperCase()}))
+    location.href = 'busqueda.html';
+}
