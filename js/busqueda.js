@@ -289,6 +289,10 @@ const botonFoset=document.querySelector("#opfoset");
 const botonFiero=document.querySelector("#opfiero");
 const botonVolteck=document.querySelector("#opvolteck");
 const botonCinsa=document.querySelector("#opcinsa");
+//alex
+//const botonBusquedaArriba = document.querySelector('.boton-bus')
+const buscarporNombre= document.querySelector('#busqueda')
+const busquedaCategoria = JSON.parse(localStorage.getItem('categoriaprecionada'))  || [];//Pasar lo de locar 
 
 //Variables de precio
 let valorMinimo=0, valorMaximo=0;
@@ -304,6 +308,10 @@ function eventos(){
    botonPretul.addEventListener("click", botonRadioPresionado);
    botonVolteck.addEventListener("click", botonRadioPresionado);
    botonCinsa.addEventListener("click", botonRadioPresionado);
+ /*    if(busquedaCategoria!=[])
+   {  */
+       imprimirCat();
+   //}
 }
 
 // Función que recoge los valores del precio
@@ -416,6 +424,61 @@ function imprimirProductos(){
             }
     });
 }
+//lode alex
+function imprimirCat(){
+    dataBaseProductos.forEach(producto =>{
+        console.log(producto.categoria);
+            if(producto.categoria== busquedaCategoria.cat)
+            {
+                const productoHTML=document.createElement('div');
+                productoHTML.innerHTML=`<div class="producto">
+                                            <img src="img/productos/${producto.imagen}" alt="" class="product-img">
+                                            <a href="producto.html" class="product-name">${producto.nombre}</a>
+                                            <p class="product-price">$${producto.precio}</p>
+                                            <p class="product-stock">En existencia</p>
+                                            <button type="button" class="btn-comprar">Comprar</button>
+                                        </div>`
+                productosBuscados.appendChild(productoHTML);
+            }
+        
+    });
+
+}
+
+ function cargarPorNombre(){
+    while(productosBuscados.firstChild)
+      productosBuscados.removeChild(productosBuscados.firstChild);
+    dataBaseProductos.forEach( producto =>{
+        //toUpperCase() es para que convierta todo en mayusculas 
+        if(buscarporNombre.value!='')
+        {
+
+                if(producto.nombre.toUpperCase().includes(buscarporNombre.value.toUpperCase()))//condicion para buscar un nombre 
+                {
+                    const productoHTML=document.createElement('div');
+                    productoHTML.innerHTML=`<div class="producto">
+                                                <img src="img/productos/${producto.imagen}" alt="" class="product-img">
+                                                <a href="producto.html" class="product-name">${producto.nombre}</a>
+                                                <p class="product-price">$${producto.precio}</p>
+                                                <p class="product-stock">En existencia</p>
+                                                <button type="button" class="btn-comprar">Comprar</button>
+                                            </div>`
+                    productosBuscados.appendChild(productoHTML);
+                }                   
+        }
+        //else
+        //  alert('Se encuentra Vacio, así que no hay nada') 
+               
+    });
+    if(!productosBuscados.hasChildNodes())
+                     {
+                         const mensajeHTML=document.createElement('div');
+                         mensajeHTML.innerHTML=`
+                         <p> El producto no existe </p> `
+                         productosBuscados.appendChild(mensajeHTML);
+                     }
+                    
+} 
 
 function botonRadioPresionado(){
     if(!botonTruper.checked && !botonPretul.checked && !botonFiero.checked && !botonFoset.checked && !botonVolteck.checked && !botonCinsa.checked){
