@@ -477,6 +477,7 @@ function imprimirCat(){
                          <p> El producto no existe </p> `
                          productosBuscados.appendChild(mensajeHTML);
                      }
+                    
 } 
 
 function botonRadioPresionado(){
