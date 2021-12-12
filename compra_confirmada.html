@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
         <link rel="stylesheet" href="css/base.css">
         <link rel="stylesheet" href="css/compra_confirm.css">
+        <link rel="stylesheet" href="css/sidenav.css">
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <!-- Fuentes -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,31 +30,39 @@
                     <a href="registrarse.html">Registrarse</a>
                 </div>
             </nav>
-            <nav class="orange-bar-conteiner">
-                <a href="index.html" class="logo"><img src="img/logo.png" alt="Error 404"></a>
-                <div class="categorias-busqueda" id="menu">
-                    <div class="categorias">
-                        <a href="busqueda.html" id="Herramientas">Herramientas</a>
-                        <a href="busqueda.html" id="Plomeria">Plomería</a>
-                        <a href="busqueda.html" id="consumibles">Consumibles</a>
+            <nav>
+                <div class="navbar">
+                    <i class='bx bx-menu'></i>
+                    <div class="logo"><a href="index.html"><img src="img/logo.png" alt=""></a></div>
+                    <div class="nav-links">
+                        <div class="sidebar-logo">
+                            <span class="logo-name">Ferrekasa</span>
+                            <i class='bx bx-x'></i>
+                        </div>
+                        <ul class="links">
+                            <li><a href="index.html">Inicio</a></li>
+                            <li>
+                                <a href="#">Categorias</a>
+                                <i class='bx bxs-chevron-down htmlcss-arrow arrow'></i>
+                                <ul class="htmlCss-sub-menu sub-menu categorias">
+                                </ul>
+                            </li>
+                            <li class="cart-container">
+                                <a class="cart" href="carrito.html">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                    </svg>
+                                    <legend class="cantidad" id="cantidad">99</legend>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="busqueda-cart">
-                        <a href="carrito.html" class="cart">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-cart-fill" viewBox="0 0 16 16">
-                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                            </svg>
-                            <legend class="cantidad" id="cantidad">99</legend>
-                        </a>
-                        <form action="" class="busqueda">
-                            <input type="text" id="busqueda">
-                            <button type="button" id="btn-buscar"onclick="cargarPorNombre()">Buscar</button>
+                    <div class="search-box">
+                        <i class='bx bx-search'></i>
+                        <form class="input-box" action="" onsubmit="envio(e)">
+                            <input type="text" id="busqueda" placeholder="Search...">
                         </form>
                     </div>
-                </div>
-                <div class="menu-conteiner">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-list" id="menu-icon"  viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                    </svg>
                 </div>
             </nav>
         </header>
@@ -91,7 +101,7 @@
         </footer>
         
         <script src="js/cargarDatosLogin.js"></script>
-        <script src="js/base.js"></script>
+        <script src="js/sidenav.js"></script>
         <script src="js/NumProductos.js"></script>
         <script src="js/busquedas.js"></script>
     </body>

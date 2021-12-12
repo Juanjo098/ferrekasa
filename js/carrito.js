@@ -1,14 +1,7 @@
 const btnContinuarCompra = document.getElementById('btn-compra');
 
 btnContinuarCompra.addEventListener('click', () => {
-    let ban = true;
-    carrito.forEach(producto => {
-        if (producto.existencia < producto.cantidad){
-            alert(`Sólo hay ${producto.existencia} de ${producto.nombre}`);
-            ban = false;
-        }
-    });
-    if (ban) {
+    if (carrito.length != 0) {
         calcularTotal();
         location.href = "pago.html";
     }

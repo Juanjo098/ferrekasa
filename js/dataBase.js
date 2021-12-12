@@ -273,8 +273,37 @@ function cargarDataBase() {
                 marca: "Truper" /* (cadena) */,
                 categoria: "Consumibles" /* (cadena) */,
                 existencia: 10 /* (entero) todos con el mismo número de existencias */
+            },
+            {
+                id: 31/* (entero) */,
+                nombre: "Desarmador" /* (cadena) */,
+                imagen: "pro30.jpeg",
+                precio: 315,
+                marca: "Truper" /* (cadena) */,
+                categoria: "Taladros" /* (cadena) */,
+                existencia: 10 /* (entero) todos con el mismo número de existencias */
             }
         ];
+        let categorias = []
+        productos.forEach((producto) => {
+            if (categorias.length == 0)
+                categorias = [...categorias, producto.categoria]
+            else{
+                if(!categorias.some((p) => p == producto.categoria))
+                    categorias = [...categorias, producto.categoria]
+            }
+        });
+        let marcas = [];
+        productos.forEach(producto => {
+            if (marcas.length == 0)
+                marcas = [...marcas, producto.marca]
+            else{
+                if(!marcas.some((p) => p == producto.marca))
+                    marcas = [...marcas, producto.marca]
+            }
+        });
         localStorage.setItem('dataBase', JSON.stringify(productos))
+        localStorage.setItem('categorias', JSON.stringify(categorias))
+        localStorage.setItem('marcas', JSON.stringify(marcas))
     }
 }
