@@ -11,6 +11,9 @@ const productosBuscados = document.querySelector(".productos-conteiner");
 //Boton de Búsqueda
 const botonBusqueda = document.querySelector("#boton-buscar");
 
+// Contenedor que almacena los filtros
+const filtros = document.querySelector('.filtros')
+
 //Botones de Radio
 const botonTruper = document.querySelector("#optruper");
 const botonPretul = document.querySelector("#oppretul");
@@ -28,17 +31,18 @@ const buscarNombre = JSON.parse(localStorage.getItem('nombre')) || null;
 eventos();
 
 function eventos() {
+    dibujarFiltros();
     if (buscarCategoria != null)
         imprimirCategorias();
     if (buscarNombre != null)
         imprimirNombres();
-    botonBusqueda.addEventListener("click", sacarValores);
-    botonTruper.addEventListener("click", botonRadioPresionado);
-    botonFoset.addEventListener("click", botonRadioPresionado);
-    botonFiero.addEventListener("click", botonRadioPresionado);
-    botonPretul.addEventListener("click", botonRadioPresionado);
-    botonVolteck.addEventListener("click", botonRadioPresionado);
-    botonCinsa.addEventListener("click", botonRadioPresionado);
+    botonBusqueda.addEventListener("click", obtenerMarcas);
+    // botonTruper.addEventListener("click", botonRadioPresionado);
+    // botonFoset.addEventListener("click", botonRadioPresionado);
+    // botonFiero.addEventListener("click", botonRadioPresionado);
+    // botonPretul.addEventListener("click", botonRadioPresionado);
+    // botonVolteck.addEventListener("click", botonRadioPresionado);
+    // botonCinsa.addEventListener("click", botonRadioPresionado);
 }
 
 function imprimirCategorias() {
@@ -208,4 +212,50 @@ function botonRadioPresionado() {
         precioMinimo.value = "--------";
         precioMaximo.value = "--------";
     }
+}
+
+const filtrosMarcados = document.getElementById('numero-filtros');
+
+function dibujarFiltros() {
+    const marcas = JSON.parse(localStorage.getItem('marcas'));
+    marcas.forEach((marca) => {
+        const divHTML = document.createElement('div');
+        divHTML.innerHTML =
+            `<input type="checkbox" class="checkbox" name="${marca}" id="${marca}">
+                        <label for="${marca}" class="a">${marca}</label>
+                        `;
+        filtros.appendChild(divHTML);
+    })
+}
+
+function obtenerMarcas(){
+    let checkboxMarcados = []
+    filtros.querySelectorAll('.checkbox').forEach((check) => {
+        if (check.checked)
+            checkboxMarcados.push(check.id);
+    })
+    dibujarProductosMarcados(checkboxMarcados);
+}
+
+function dibujarProductosMarcados(checkboxMarcados) {
+    const filtrarPrecios = document.querySelectorAll('.filtro-precio input')
+    const min = parseFloat(filtrarPrecios[0].value);
+    const max = parseFloat(filtrarPrecios[1].value);
+    while (productosBuscados.firstChild)
+        productosBuscados.removeChild(productosBuscados.firstChild);
+    checkboxMarcados.forEach((marca) => {
+        dataBaseProductos.forEach(producto => {
+            if (marca == producto.marca && producto.precio > min && producto.precio < max) {
+                const productoHTML = document.createElement('div');
+                productoHTML.innerHTML = `<div class="producto">
+                                                <img src="img/productos/${producto.imagen}" alt="" class="product-img">
+                                                <a href="producto.html" class="product-name">${producto.nombre}</a>
+                                                <p class="product-price">$${producto.precio}</p>
+                                                <p class="product-stock">En existencia</p>
+                                                <button type="button" class="btn-comprar">Comprar</button>
+                                            </div>`
+                productosBuscados.appendChild(productoHTML);
+            }
+        });
+    });
 }
