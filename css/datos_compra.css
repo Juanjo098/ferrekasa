@@ -1,0 +1,77 @@
+:root{
+    --funte: 'Krub', sans-serif;
+    --naranja_oscuro: #f26a21;
+    --naranja_claro: #f7911c;
+    --negro: #212121;
+    --blanco: #fff;
+    --opaco: rgba(0, 0, 0, 0.4);
+    --fondo: #e3e4e4;
+}
+
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: var(--funte);
+}
+
+body{
+    font-size: 1.6rem;
+    background-color: var(--fondo);
+}
+
+h2, h3{
+    text-align: center;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.informacion_pago{
+    width: 90%;
+    margin: 2rem 0;
+    padding: 2rem;
+    background-color: var(--blanco);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.6);
+    border-radius: 1rem;
+}
+
+/* Tabla que contiene los datos del usuario */
+.informacion_usuario{
+    margin: 0 auto;
+}
+
+table, th, td{
+    border-collapse: collapse;
+}
+
+th, td{
+    border: 1px solid black;
+    padding: 0.5rem;
+}
+
+.informacion_usuario td{
+    width: 80%;
+}
+
+.informacion_usuario th{
+    background-color: #ccc;
+    text-align: right;
+}
+
+.informacion_usuario div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+.productos_comprados{
+    width: 100%;
+}

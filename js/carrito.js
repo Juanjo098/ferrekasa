@@ -9,6 +9,7 @@ btnContinuarCompra.addEventListener('click', () => {
         }
     });
     if (ban) {
+        calcularTotal();
         location.href = "pago.html";
     }
 });
@@ -58,7 +59,7 @@ function pintarRenglonesTabla() {
         divHtml.setAttribute("class", "articulo");
         divHtml.innerHTML = ` <div>
                                     <img class="imagen" src="img/productos/${producto.imagen}">
-                               </div>
+                            </div>
 
                                 <div class="salto">
                                     <p class="nombre-articulo">${producto.nombre}</p>
@@ -76,11 +77,11 @@ function pintarRenglonesTabla() {
 
                                 <div class="salto">
                                     <div class="centra-cantidad">
-                                        <p>Cantidad</p>
+                                        <p>En existencia: ${producto.existencia}</p>
                                     </div>
 
                                     <div class="cantidad" id="cantidad">
-                                        <input type="number" value="${producto.cantidad}" min="1" max="20">
+                                        <input type="number" value="${producto.cantidad}" min="1" max="${producto.existencia}">
                                     </div>
                                 </div>
 
@@ -154,4 +155,17 @@ function sincronizarLocalStorage() {
     localStorage.setItem('CarritoLE', JSON.stringify(carrito));
 }
 
+function calcularTotal() {
+    let subTotal = 0;
+    let envio;
+    let total = 0;
 
+    carrito.forEach(producto => {
+        subTotal += producto.precio * producto.cantidad;
+    });
+
+    envio = subTotal > 2000 ? 0 : 250;
+    total = subTotal + envio;
+    
+    localStorage.setItem('costo', JSON.stringify({subtotal: subTotal, envio: envio, total: total}));
+}
