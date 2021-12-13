@@ -279,7 +279,7 @@ function cargarDataBase() {
                 nombre: "Desarmador" /* (cadena) */,
                 imagen: "pro30.jpeg",
                 precio: 315,
-                marca: "Truper" /* (cadena) */,
+                marca: "China" /* (cadena) */,
                 categoria: "Taladros" /* (cadena) */,
                 existencia: 10 /* (entero) todos con el mismo número de existencias */
             }
