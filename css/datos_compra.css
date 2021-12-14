@@ -78,9 +78,14 @@ th, td{
 
 /* ------- */
 
+.imagen{
+    display: flex;
+    justify-content: center;
+}
+
 .productos_comprados img{
-    width: 100%;
-    height: 130px;
+    width: 100px;
+    height: 100px;
 }
 
 .contenedor-pago-con-boton{

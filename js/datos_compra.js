@@ -49,7 +49,7 @@ function dibujarProductosComprados() {
         trHTML.innerHTML =
             `<td>${index++}</td>
             <td>${producto.id}</td>
-            <td><img src="img/productos/${producto.imagen}" alt="Error 404"></td>
+            <td class="imagen"><img src="img/productos/${producto.imagen}" alt="Error 404"></td>
             <td>${producto.nombre}</td>
             <td>${producto.cantidad}</td>
             <td>$${producto.precio}</td>
