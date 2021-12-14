@@ -1,12 +1,14 @@
 const producto = JSON.parse(localStorage.getItem('producto'));
 const container = document.querySelector('.contenido');
 const cantProd = document.querySelector('#cantidad');
+let imagenModal;
+let imagen;
 
 cargarEventListeners();
 
 function cargarEventListeners() {
     document.addEventListener('DOMContentLoaded', dibujarProducto);
-    container.addEventListener('click', e => cargarProducto(e))
+    container.addEventListener('click', e => cargarProducto(e));
 }
 
 function dibujarProducto() {
@@ -23,7 +25,19 @@ function dibujarProducto() {
         <div class="producto-modal">
             <img class="imagen-modal" src="img/productos/${producto[0].imagen}" alt="" width="100%">
         </div>`
-    container.appendChild(divHTML);
+        container.appendChild(divHTML);
+        imagenModal = document.querySelector('.producto-modal');
+        imagen = document.querySelector('.producto-modal img');
+
+        imagen.addEventListener('click', function(e) {
+            e.stopPropagation();
+            this.classList.add('active');
+            this.parentNode.classList.add('active');
+        });
+        imagenModal.addEventListener('click', function() {
+            this.classList.remove('active');
+            this.querySelector('img').classList.remove('active');
+        });
 }
 
 function cargarProducto(e) {

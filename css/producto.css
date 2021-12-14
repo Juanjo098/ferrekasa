@@ -106,8 +106,8 @@ body{
 /* Imagen con los detalles del producto */
 .producto-modal.active{
     position: fixed;
-    width: 100vw;
     height: 100vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -135,16 +135,18 @@ body{
     cursor: pointer;
 }
 
+.imagen-modal.active{
+    width: 70%;
+    z-index: 1;
+}
+
 .imagen-modal:hover{
     border: 0.3rem solid var(--naranja_oscuro);
     outline: none;
     box-shadow: 0.3rem 0rem 3rem rgba(163, 163, 163, 0.4);
 }
 
-.imagen-modal.active{
-    width: 50%;
-    z-index: 1;
-}
+
 
 /* Botón de comprar */
 .btn-comprar{
