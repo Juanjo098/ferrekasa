@@ -112,7 +112,7 @@ function dibujarProductosMarcados(checkboxMarcadas) {
         productosBuscados.removeChild(productosBuscados.firstChild);
     checkboxMarcadas.forEach((marca) => {
         dataBaseProductos.forEach(producto => {
-            if (marca == producto.marca && producto.precio > min && producto.precio < max) {
+            if (marca == producto.marca && producto.precio >= min && producto.precio <= max) {
                 const productoHTML = document.createElement('div');
                 productoHTML.innerHTML = `<div class="producto">
                                                 <img src="img/productos/${producto.imagen}" alt="" class="product-img">
