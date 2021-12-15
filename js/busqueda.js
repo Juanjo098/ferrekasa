@@ -48,8 +48,8 @@ function imprimirCategorias() {
                                             <img src="img/productos/${producto.imagen}" alt="" class="product-img">
                                             <a href="producto.html" class="product-name">${producto.nombre}</a>
                                             <p class="product-price">$${producto.precio}</p>
-                                            <p class="product-stock">En existencia</p>
-                                            <button type="button" class="btn-comprar">Comprar</button>
+                                            ${producto.existencia > 0 ? `<p class="product-stock">En existencia</p>` : `<p class="product-stock agotado">Agotado</p>`}
+                                            ${producto.existencia > 0 ? `<button type="button" class="btn-comprar">Comprar</button>` : ``}
                                         </div>`
             productosBuscados.appendChild(productoHTML);
         }
@@ -68,8 +68,8 @@ function imprimirNombres() {
                                             <img src="img/productos/${producto.imagen}" alt="" class="product-img">
                                             <a href="producto.html" class="product-name">${producto.nombre}</a>
                                             <p class="product-price">$${producto.precio}</p>
-                                            <p class="product-stock">En existencia</p>
-                                            <button type="button" class="btn-comprar">Comprar</button>
+                                            ${producto.existencia > 0 ? `<p class="product-stock">En existencia</p>` : `<p class="product-stock agotado">Agotado</p>`}
+                                            ${producto.existencia > 0 ? `<button type="button" class="btn-comprar">Comprar</button>` : ``}
                                         </div>`
             productosBuscados.appendChild(productoHTML);
         }
@@ -118,8 +118,8 @@ function dibujarProductosMarcados(checkboxMarcadas) {
                                                 <img src="img/productos/${producto.imagen}" alt="" class="product-img">
                                                 <a href="producto.html" class="product-name">${producto.nombre}</a>
                                                 <p class="product-price">$${producto.precio}</p>
-                                                <p class="product-stock">En existencia</p>
-                                                <button type="button" class="btn-comprar">Comprar</button>
+                                                ${producto.existencia > 0 ? `<p class="product-stock">En existencia</p>` : `<p class="product-stock agotado">Agotado</p>`}
+                                                ${producto.existencia > 0 ? `<button type="button" class="btn-comprar">Comprar</button>` : ``}
                                             </div>`
                 productosBuscados.appendChild(productoHTML);
             }

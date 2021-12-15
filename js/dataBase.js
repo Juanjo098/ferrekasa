@@ -1,9 +1,16 @@
-// Arreglo que contiene la información de los productos
-cargarDataBase();
+let dataProductos;
+let dataCategorias;
+let marcas;
+
+document.addEventListener('DOMContentLoaded', () =>{
+    cargarDataBase();
+    cargarListaCategorias();
+    cargarListaMarcas();
+})
 
 function cargarDataBase() {
     if (JSON.parse(localStorage.getItem('dataBase')) == null) {
-        const productos =[
+        dataProductos =[
             {
                 id: 1 /* (entero) */,
                 nombre: "Disco De Diamante, Rin Continuo, 4-1/2' " /* (cadena) */,
@@ -284,16 +291,28 @@ function cargarDataBase() {
                 existencia: 10 /* (entero) todos con el mismo número de existencias */
             }
         ];
-        let categorias = []
+        localStorage.setItem('dataBase', JSON.stringify(dataProductos));
+    }
+}
+
+function cargarListaCategorias(){
+    if (localStorage.getItem('categorias') == null){
+        dataCategorias = []
         productos.forEach((producto) => {
-            if (categorias.length == 0)
-                categorias = [...categorias, producto.categoria]
+            if (dataCategorias.length == 0)
+                dataCategorias = [...dataCategorias, producto.categoria]
             else{
-                if(!categorias.some((p) => p == producto.categoria))
-                    categorias = [...categorias, producto.categoria]
+                if(!dataCategorias.some((p) => p == producto.categoria))
+                    dataCategorias = [...dataCategorias, producto.categoria]
             }
         });
-        let marcas = [];
+        localStorage.setItem('categorias', JSON.stringify(dataCategorias));
+    }
+}
+
+function cargarListaMarcas(){
+    if (localStorage.getItem('marcas') == null){
+        marcas = [];
         productos.forEach(producto => {
             if (marcas.length == 0)
                 marcas = [...marcas, producto.marca]
@@ -302,8 +321,6 @@ function cargarDataBase() {
                     marcas = [...marcas, producto.marca]
             }
         });
-        localStorage.setItem('dataBase', JSON.stringify(productos))
-        localStorage.setItem('categorias', JSON.stringify(categorias))
-        localStorage.setItem('marcas', JSON.stringify(marcas))
+        localStorage.setItem('marcas', JSON.stringify(marcas));
     }
 }
