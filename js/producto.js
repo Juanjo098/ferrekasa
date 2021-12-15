@@ -19,7 +19,7 @@ function dibujarProducto() {
         <h1 class="product-name">${producto[0].nombre}</h1>
         <p class="product-price">$${producto[0].precio}</p>
         <p class="product-stock">${producto[0].existencia > 0 ? `${producto[0].existencia} aún en existencia` : `Agotado`}</p>
-        ${producto.existencia > 0 ? `<button type="button" class="btn-comprar">Comprar</button>` : ``}
+        ${producto[0].existencia > 0 ? `<button type="button" class="btn-comprar">Comprar</button>` : ``}
         <h2 class="descripcion">DESCRIPCIÓN:</h2>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa excepturi voluptate veritatis, repudiandae assumenda natus odit temporibus veniam. Excepturi ab sed quod impedit aliquid placeat voluptatum dolorum accusamus quidem facere!</p>
         <div class="producto-modal">

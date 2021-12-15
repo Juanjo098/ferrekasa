@@ -15,7 +15,7 @@ function cargarCategroias() {
     cat.forEach(categoria => {
         const liHTML = document.createElement("li");
         liHTML.innerHTML =
-            `<li><a href="busqueda.html" id="${categoria}">${categoria}</a></li>`
+            `<a href="busqueda.html" id="${categoria}">${categoria}</a>`
         contenedorCategorias.appendChild(liHTML);
     });
     categorias = document.querySelectorAll('.categorias a');
